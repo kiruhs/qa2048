@@ -22,8 +22,6 @@
 # a = 50 * a
 # print(a)
 # print(dir(z))
-from fontTools.subset.svg import xpath
-from sqlalchemy.util import ellipses_string
 
 # txt = "Hello, group QA2048!"
 # x = txt.upper()
@@ -86,7 +84,7 @@ from sqlalchemy.util import ellipses_string
 # for x in range(10,0,-1):
 #     print(x)
 
-st = "1 Hello, world. Version 3 of Python is more powerful, than 2."
+# st = "1 Hello, world. Version 3 of Python is more powerful, than 2."
 # for l in st:
 #     print(l, end="*")
 # print(st)
@@ -168,7 +166,7 @@ st = "1 Hello, world. Version 3 of Python is more powerful, than 2."
 # print(n_fr_cp2 == fruits)
 # print(n_fr_cp2 is fruits)
 
-st = "Hello world. What a beautiful day is today"
+# st = "Hello world. What a beautiful day is today"
 # print(len(st.split()))
 # ls = []
 # for i in st:
@@ -180,6 +178,158 @@ st = "Hello world. What a beautiful day is today"
 
 # print([i for i in st if i not in " "])
 
-st = "Hello, world!!! Today is 24.12.2025."
+# st = "Hello, world!!! Today is 24.12.2025."
+# list comprehension
+# print([i for i in st if not i.isdigit() and i not in (" ", ".", ",", "!")])
 
-print([i for i in st if not i.isdigit() and i not in (" ", ".", ",", "!")])
+# 5X5 *
+# for i in range(5):
+#     for j in range(7):
+#         print('*', end=' ')
+#     print()
+
+# num = int(input("Enter some number: "))
+# if num > 0:
+#     print("positive")
+# else:
+#     print("not positive")
+# short hand if operator
+# print("positive") if num > 0 else print("negative") if num < 0 else print("Zero")
+
+# st = "Hello, world!"
+# for i in st:
+#     print(i, end=":")
+# short hand for with if
+# [print(i, end=":") for i in st if i not in " "]
+
+# st = "Hello, world!"
+# for i in st:
+#     if i == " ":
+#         # continue - ignores all following rows inside for operator and goes toward the next element
+#         break # breaks for loop and exits
+#     print(i, end=":")
+
+# print([i for i in range(1, 101) if i%2 == 0])
+#
+# print([i**2 for i in range(1, 101) if i%2 == 0])
+#
+# print([float(f"{i**0.5:.2f}") for i in range(1, 101) if i%2 == 0])
+
+# txt = "Hello guys. We are learning python now. This is the great programming language"
+# lst2 = [146, 318904834]
+# lst2.append(['John', 'Smith', 'qa engineer'])
+# lst = [145, 321903843]
+# lst.append([w for w in txt.split() if len(w) > 5])
+# #
+# #
+# # print(lst)
+# workers = []
+# workers.append(lst)
+# workers.append(lst)
+# print(workers)
+
+fruits = ["apple", "chery", "banana",  "watermelon", "Kiwi", "cherry"]
+# fruits.remove("banana")
+# print(fruits)
+# print(fruits.pop())
+# print(fruits)
+# fruits.clear()
+# del fruits
+# print(fruits)
+
+# print(fruits.count("cherry"))
+
+# print(fruits[::-1])
+# print(fruits)
+# fruits.reverse()
+# print(fruits)
+# fruits.sort()
+# sorted_fruits = sorted(fruits, reverse=True, key=len)
+# print(fruits)
+# print(sorted_fruits)
+
+# x = 8
+# y = 10
+# z = y
+# y = x
+# x = z
+# swapping
+# x, y = y, x
+
+# x, y = 8, 10
+
+# creating sorted list from two sorted sub-lists
+
+# lst1 = [1, 2, 3, 5, 7, 34, 99]
+# lst2 = [2, 4, 6, 7, 23, 58, 67, 69]
+#
+# lst3 = []
+# i, j = 0, 0
+#
+# while i < len(lst1) and j < len(lst2):
+#     if lst1[i] < lst2[j]:
+#         lst3.append(lst1[i])
+#         i += 1
+#         if i >= len(lst1):
+#             while j < len(lst2):
+#                 lst3.append(lst2[j])
+#                 j += 1
+#     else:
+#         lst3.append(lst2[j])
+#         j += 1
+#         if j >= len(lst2):
+#             while i < len(lst1):
+#                 lst3.append(lst1[i])
+#                 i += 1
+#
+# print(lst1)
+# print(lst2)
+# print(lst3)
+
+# lst = [56, 13, 37, 5, 0, 37, -1, -4, -50]
+# for i in range(len(lst) - 1):
+#     for j in range(len(lst) - i - 1):
+#         if lst[j] > lst[j+1]:
+#             lst[j], lst[j+1] = lst[j+1], lst[j]
+#
+# print(lst)
+
+# function
+
+
+# def hello():
+#     print("Hello, world!")
+
+# def hello(name, age):
+#     print("Hello,", name, " you are", age)
+#
+#
+# hello("Alexander", 25)
+# hello("Sergey", 27)
+
+# def max2(x, y):
+#     if x > y:
+#         return x
+#     return y
+#
+# maximal = max2(400, 87)
+# # print(maximal)
+#
+# def max3(x, y, z):
+#     return max2(max2(x, y), z)
+#
+# print(max3(-5, -45, 2))
+
+# def my_country(country="Israel", x = 10):
+#     print("I'm from", country, "leave", x, "years")
+#
+# my_country("Sweden", 5)
+# my_country()
+# my_country("USA")
+
+def call_child(*kids):
+    # print("My child's name is", kid)
+    if len(kids) > 0:
+        print("The youngest kid is", kids[-1])
+
+call_child("Emile", "Mary", "Michael", "Jonny")
