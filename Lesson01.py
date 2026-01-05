@@ -22,6 +22,7 @@
 # a = 50 * a
 # print(a)
 # print(dir(z))
+from sqlalchemy.dialects.postgresql.types import PGUuid
 
 # txt = "Hello, group QA2048!"
 # x = txt.upper()
@@ -327,9 +328,136 @@ fruits = ["apple", "chery", "banana",  "watermelon", "Kiwi", "cherry"]
 # my_country()
 # my_country("USA")
 
-def call_child(*kids):
-    # print("My child's name is", kid)
-    if len(kids) > 0:
-        print("The youngest kid is", kids[-1])
+# def call_child(*kids): # (*args)
+#     # print("My child's name is", kid)
+#     if len(kids) > 0:
+#         print("The youngest kid is", kids)
+#
+# call_child("Emile", "Mary", "Michael", "Jonny")
 
-call_child("Emile", "Mary", "Michael", "Jonny")
+# def personal_info(*args, **kwargs):
+#     k = len(args)
+#     v = len(kwargs)
+#     print(f"{args} these strings were passed to my function")
+#     print(kwargs["age"])
+#     return *args, k, v
+#
+# y = personal_info("John","Jack", "Hello world", surname="Conor", age=35, son="Jack", stam="kuku")
+# print(y)
+# y = 0
+# def my_fun(x_copy):
+#     # global y # not recommended
+#     y = 5 * x_copy
+#     x_copy = x_copy * 10
+#     return y
+#
+# x = 5
+# # y = (my_fun(x))
+# print(y)
+# print(x)
+
+# factorial    6! 1*2*3*4*5*6
+# num = 60
+# def fact_not_rec(n):
+#     fact = 1
+#     for i in range(1,n+1):
+#         fact *= i
+#     return fact
+#
+# print(fact_not_rec(num))
+#
+# # recursion
+#
+# def fact_rec(n):
+#     if n > 1:
+#         return fact_rec(n-1) * n
+#     return 1
+
+# print(fact_rec(num))
+
+# fibonacci
+# i[n] = i[n-1] + i[n-2]
+#
+# import time
+#
+# num = 38
+# lst = [1, 1]
+# def fibo(x):
+#     for i in range(2, x):
+#         lst.append(lst[i-1] + lst[i-2])
+# start = time.time()
+# fibo(num)
+# print(lst)
+# print(f"Classic algorithm - {time.time() - start}")
+# # 1, 1, 2, 3, 5, 8, 13, 21
+# def fibo_rec(x):
+#     if x > 1:
+#         return fibo_rec(x-1) + fibo_rec(x-2)
+#     return x
+#
+# def fib_list(n):
+#     lst = []
+#     for i in range(1,n+1):
+#         lst.append(fibo_rec(i))
+#     return lst
+# start = time.time()
+# print(fib_list(num))
+# print(f"Recursive algorithm - {time.time() - start}")
+
+# x = 5
+# for i in range(100):   # O(n)
+#     x += i
+#
+# x =5
+# for j in range(100):
+#     x += j
+#
+# for i in range(100):
+#     for j in range(100):
+#         for k in range(100): # O(n^3)
+#             x += k
+# print(x)
+
+# Lambda functions - Anonymous functions
+
+# def pr(st):
+#     print(st)
+
+# pr("Hello, world!")
+# x = lambda : print("Hello, world!")
+#
+# x()
+# x()
+
+# print((lambda x: x*x)(8))
+
+# lst = [5, 14, (lambda x: x*x)(14), "Hello"]
+# print(lst)
+
+# def get_filter(a, fil=None):
+#     if not fil:
+#         return a
+#     return [y for y in a if fil(y)]
+# lst = [1, 2, 4, 34, -4, -200, 45, 9]
+# lst1 = get_filter(lst, lambda x: x >= 0)
+# lst2 = get_filter(lst, lambda x: x%2 == 1)
+# print(lst1)
+# print(lst2)
+
+# lst1 = [2, 5, -2]
+# lst2 = [3, 3, 4]
+# lst3 = [0, -40, 0]
+# # print(*map(pow, lst1, lst2))
+# #
+# print(*map(lambda x, y, z: x*y+z, lst1, lst2, lst3))
+
+# print(*map(lambda x: x*2, lst1))
+
+
+
+# lst = [x for x in range(50)]
+# print(*filter(lambda z: z%3 == 0, lst))
+
+seq = "Hello world. The evening is wonderful"
+
+print(list(filter(lambda vowels: vowels in ['a', 'e', 'i', 'o', 'u', 'y'], seq)))
