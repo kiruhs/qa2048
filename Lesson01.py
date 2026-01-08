@@ -22,7 +22,7 @@
 # a = 50 * a
 # print(a)
 # print(dir(z))
-from sqlalchemy.dialects.postgresql.types import PGUuid
+
 
 # txt = "Hello, group QA2048!"
 # x = txt.upper()
@@ -229,7 +229,7 @@ from sqlalchemy.dialects.postgresql.types import PGUuid
 # workers.append(lst)
 # print(workers)
 
-fruits = ["apple", "chery", "banana",  "watermelon", "Kiwi", "cherry"]
+# fruits = ["apple", "chery", "banana",  "watermelon", "Kiwi", "cherry"]
 # fruits.remove("banana")
 # print(fruits)
 # print(fruits.pop())
@@ -458,6 +458,160 @@ fruits = ["apple", "chery", "banana",  "watermelon", "Kiwi", "cherry"]
 # lst = [x for x in range(50)]
 # print(*filter(lambda z: z%3 == 0, lst))
 
-seq = "Hello world. The evening is wonderful"
+# seq = "Hello world. The evening is wonderful"
+# print(list(filter(lambda vowels: vowels in ['a', 'e', 'i', 'o', 'u', 'y'], seq)))
 
-print(list(filter(lambda vowels: vowels in ['a', 'e', 'i', 'o', 'u', 'y'], seq)))
+# Кортеж
+# Tuple iterable, ordered, duplicates enabled, immutable
+
+# tpl = tuple(("apple", "banana", 4, 3.5, 4, True, (3, 5, 7), [10, 32, [], (), (4, 6, 7), -4]))
+# # tpl = (5, 4)
+# print(type(tpl))
+# # print(len(tpl))
+# print(tpl[6][2])
+# print(tpl[-1][-1])
+# # tpl[3] = 5
+# # tpl[6][2] = 3 - doesn't work because of immutability
+# print(type(tpl[-1]))
+# # tpl[-1].append(1000)
+# print(tpl)
+# print(tpl[7][-2])
+# tpl[7][-2][1] = "Hello"
+# print(tpl)
+
+# lst = [1, 2, 4, 5, 6]
+# tpl = tuple(lst)
+# print(tpl)
+
+# tpl = (1, 2, 4, 5, 6, 45, 78, 90, 5, 4, 4, "iyeit", True)
+# lst = list(tpl)
+# # print(lst)
+# lst.append(10)
+# tpl = tuple(lst)
+# print(lst)
+# print(tpl)
+# print(tpl.count(4))
+# print(tpl.index(90))
+# print(tpl.__sizeof__())
+# print(lst.__sizeof__())
+
+# fruits = ("apple", "banana", "cherry", "strawberry", "watermelon")
+# (green, *yellow, red) = fruits
+# print(fruits)
+# print(yellow)
+
+# lst = [i**2 for i in range(1, 110000)]
+# print(lst.__sizeof__())
+# print(lst[1000])
+# tpl = (i**2 for i in range(1, 110000))
+# print(tpl.__sizeof__())
+# print(tuple(tpl)[1000])
+
+# tpl1 = ('a', 'b', 'c')
+# tpl2 = (1, 2, 3)
+# tpl3 = tpl1 + tpl2
+# print(tpl3)
+# mult_tpl = tpl2 * 3
+# print(mult_tpl)
+
+# lst = [(4, 5), (2, 3), (6, 7), (2, 8)]
+# print(lst)
+# l = len(lst)
+# # bubble sort
+# for i in range(l):
+#     for j in range(l - i - 1):
+#         if (lst[j][0] + lst[j][1]) > (lst[j+1][0] + lst[j+1][1]):
+#             lst[j], lst[j+1] = lst[j+1], lst[j]
+#
+# print(lst)
+# my_types = (int, str, list)
+# y = [3]
+# x = isinstance(y, my_types)
+# print(x)
+
+# set : changeable, not ordered, not duplicates enabled, cannot contain other changeable types
+
+# set1 = {0, 3, "hello", 5, 5, 5, 5.0, "hello",True, False, (3, 4, 6),0,0,0,0,0,0,0, 0}
+# set2 = set()
+# print(len(set1))
+# for i in set1:
+#     print(i)
+
+# print(1 in set1)
+#
+# lst = [5, -7, 10]
+# print(lst[2])
+
+# print(hash("hel"))
+
+# fruits = {"apple", "orange", "banana", "cherry"}
+# print(fruits)
+# tropical = ("kiwi", "pineapple", "mango")
+# fruits.add("apricot")
+# print(fruits)
+# fruits.update(tropical)
+# # print(fruits)
+# fruits.discard("banana")
+# print(fruits)
+# fruits.discard("banana")
+# deleted = fruits.pop()
+# print(deleted)
+# print(fruits)
+# fruits.clear()
+# print(fruits)
+# del fruits
+# print(fruits) - object doesn't exist
+
+# set1 = {'a', 'b', 'c', (1, 2, 3)}
+# set2 = {1, 2, 3, 'a', 'c', (1, 2, 3)}
+# set3 = {"John", "Elena"}
+# myset = set1.union(set2, set3)
+# myset = set1 | set2 | set3
+# print(myset)
+# set1 |= set2
+# print(set1)
+# int_set = set1.intersection(set2)
+# int_set = set1 & set2
+# print(int_set)
+# set1.intersection_update(set2)
+# set1 &= set2
+# print(set1)
+# set1 = {'a', 'b', 'c', (1, 2, 3)}
+# set2 = {1, 2, 3, 'a', 'c', (1, 2, 3)}
+# set3 = {"John", "Elena"}
+
+# print(set2.difference(set1))
+# set1.difference_update(set2)
+# print(set1)
+# set2 -= set1
+# print(set2)
+# print(set2.symmetric_difference(set1))
+# set2.symmetric_difference_update(set1)
+# print(set2)
+# set2 ^= set1
+# print(set2)
+
+# set1 = {2, 4, 6, 3, 0}
+# set2 = {2, 4, 6}
+# print(set2.issubset(set1))
+# print(set1.issuperset(set2))
+
+# performance
+import time
+MAX_VALUE = 10_000_000
+SEARCH_ITEM = 9_999_990
+
+lst = [i**2 for i in range(MAX_VALUE)]
+st = {i**2 for i in range(MAX_VALUE)}
+# print(lst)
+# print(st)
+
+start = time.time_ns()
+print(SEARCH_ITEM**2 in st)
+print(f" Search in set = {time.time_ns() - start}")
+
+start = time.time_ns()
+print(SEARCH_ITEM**2 in lst)
+print(f" Search in list = {time.time_ns() - start}")
+
+
