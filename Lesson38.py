@@ -69,8 +69,8 @@
 
 # nested dictionaries
 import pprint
+from tokenize import Ignore
 
-from sqlalchemy.util import symbol
 
 # dct = {(1, 2, 3): 5}
 # print(dct)
@@ -134,8 +134,8 @@ from sqlalchemy.util import symbol
 #             symbol_dict[sym.lower()] = 1
 #     return symbol_dict
 #
-# # pprint.pprint(sorted(create_symbol_dict(st).items(), key=lambda item: item[1]))
-# pprint.pprint({k: v for k, v in sorted(create_symbol_dict(st).items(), key=lambda item: item[1])})
+# # pprint.pprint(dict(sorted(create_symbol_dict(st).items(), key=lambda item: item[1])),sort_dicts=False)
+# pprint.pprint({k: v for k, v in sorted(create_symbol_dict(st).items(), key=lambda item: item[1])}, sort_dicts=False)
 
 
 # dct = {"brand": "Ford",
@@ -152,8 +152,8 @@ from sqlalchemy.util import symbol
 # dct = {k: num.count(k) for k in num}
 # print(dct)
 
-dct1 = {"item": "jacket", "size": "L", "color": "black"}
-dct2 = {"model": "35m1", "quantity": 50, "color": "blue"}
+# dct1 = {"item": "jacket", "size": "L", "color": "black"}
+# dct2 = {"model": "35m1", "quantity": 50, "color": "blue"}
 # new = {}
 # for _ in dct1:
 #     new.update(dct1.items())
@@ -161,5 +161,121 @@ dct2 = {"model": "35m1", "quantity": 50, "color": "blue"}
 #     new.update(dct2.items())
 # print(new)
 
-print({**dct1, **dct2}) # union to one dictionary
-print(dct1, dct2) # two separate dictionaries
+# print({**dct1, **dct2}) # union to one dictionary
+# print(dct1, dct2) # two separate dictionaries
+
+# interactive dictionary (vocabulary)
+# words = {}
+# with open("dictionary.txt", 'a+', encoding="utf8") as file:
+#     file.seek(0)
+#     lst = file.readlines()
+#     for i in lst:
+#         k, v = i[:-1].split(":")
+#         words.update({k: v})
+# # print(lst)
+# # print(words)
+# print("This is the interactive dictionary, that you create yourself\n"
+#       "just enter a word... (for exit input 'q' button) ")
+#
+# while True:
+#
+#     w = input()
+#     if w == 'q':
+#         break
+#     if w in words:
+#         print(f"word {w} is translated as {words[w]}")
+#     else:
+#         with open("dictionary.txt", 'a+', encoding='utf8') as file:
+#             words[w] = input("Input the translation in Russian: ")
+#             file.write(f"\n{w}:{words[w]}")
+#     print("enter a word... ")
+
+# memory allocation and emptying with Garbage collector
+# lst = [1, 2, 4]
+# lst2 = lst
+# del lst2
+# del lst
+
+# files handling
+
+# f = open("test.txt")
+# # print(type(f))
+# # print(f)
+# text = f.read()
+# f.close()
+# print(text)
+
+# with open("test.txt") as file:
+#     text = file.read()
+#     print(type(file))
+    # for each in file:
+    #     print(each)
+# print(text)
+# print(type(text))
+
+# for l in text:
+#     print(l)
+# with open("test.txt") as rf:
+#     txt = rf.read(3)
+#     txt2 = rf.read()
+#     rf.seek(3)
+#     txt3 = rf.read()
+    # print(txt)
+    # print(txt2)
+    # print(txt3)
+
+# l = ["This is Delhi\n", "This is Paris\n", "This is London\n"]
+#
+# with open("test.txt", 'a+') as af:
+#     af.write("\nHello2\n") # EOF
+    # af.seek(0)
+    # print(af.readline(), end='')
+    # print(af.readline(), end='')
+    # af.writelines(l)
+    # af.seek(0)
+    # print(af.read())
+    # lst = af.readlines() # list of lines
+    # nlst = [el[:-1] for el in lst]
+    # print(nlst)
+    # print(af.tell())
+    # af.seek(0)
+    # print(*af.readlines()[4:8], sep='')
+
+
+# with open("test.txt", 'w') as file:
+#     file.write("Hello1")
+#     file.read()
+
+# with open("test1.txt", 'a+') as file:
+#     file.write("Kuku")
+#     file.seek(0)
+#     file.read()
+
+def count_words(st):
+    words = {}
+    for word in st.split():
+        if word in words:
+            words[word] += 1
+        else:
+            words[word] = 1
+    return words
+
+def count_symbols(st):
+    symbols = {}
+    for char in st:
+        if char in symbols:
+            symbols[char] += 1
+        else:
+            symbols[char] = 1
+    return symbols
+
+with open("war.htm", encoding="utf8") as file:
+    txt = file.read()
+
+
+pprint.pprint(dict(sorted(count_words(txt.lower()).items(), key= lambda item: item[1])), sort_dicts=False)
+
+# dct = count_words(txt.lower())
+# lst = sorted(dct.items(), key= lambda item: item[1])
+# sorted_dct = dict(lst)
+# pprint.pprint(sorted_dct, sort_dicts=False)
