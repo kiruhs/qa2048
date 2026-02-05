@@ -56,13 +56,21 @@ year = Select(driver.find_element(By.XPATH, '/html/body/app-root/div/div/div[1]/
 year.select_by_value('1971')
 driver.find_element(By.XPATH, '/html/body/app-root/div/div/div[1]/main/div[1]/app-register/form/fieldset/section/ul/li[7]/app-input-genders/form/fieldset/ul/li[1]/label/span').click()
 sleep(1)
+
 driver.find_element(By.XPATH, '/html/body/app-root/div/div/div[1]/main/div[1]/app-register/form/fieldset/section/ul/li[8]/label/span').click()
 sleep(1)
 driver.find_element(By.ID, 'submit-button').click()
 sleep(5)
 try:
     check = driver.find_element(By.ID, 'errorPhoneInvalid')
-    print("The test passed, because we get alert of invalid phone number")
+    if check.value_of_css_property('visibility') != 'hidden' and check.value_of_css_property("display") != 'none':
+        print("The test passed, because we get alert of invalid phone number")
+    else:
+        print("The valid phone is entered")
+
+    check = driver.find_element(By.ID, 'errorGenderInvalid')
+    if check.value_of_css_property('visibility') != 'hidden' and check.value_of_css_property("display") != 'none':
+        print("The test passed, because we get alert of missed gender")
 except NoSuchElementException as err:
     print(err)
 driver.close()
