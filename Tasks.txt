@@ -1,0 +1,34 @@
+https://nirvanajapanesespa.com/
+
+Tasks:
+1. 
+2. SRS - Software requirements Specification
+3. STD - Software Test Design - Test Cases
+4. Test execution + bug report
+5. STR - Summary Test Report
+
+
+
+Test types:
+
+All activity is manual
+
+1. Functional
+2. GUI
+3. Usability
+4. Portability - Windows10, 11, Linux, MacOS (optional), IOS, Android, Chrome, Safari, Firefox
+
+In Scope:
+Functional:
+Sign Up
+Sign In
+Navigation
+Create a new mail and sending
+Receiving mails
+File attachment
+Label creating
+
+
+Non Functional:
+Performance: The Response time should be up to 3 seconds for each window switching and each action
+Processing of commit files after upload should take up to 5 seconds
