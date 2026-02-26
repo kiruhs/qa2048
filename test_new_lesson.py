@@ -1,0 +1,4 @@
+from utils import division
+
+def test_division_good():
+    assert division(36, 6) == 6
